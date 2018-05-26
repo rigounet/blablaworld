@@ -24,8 +24,7 @@ client.on("message", message => {
 	}
 });
 
-client.on("message", (message) => {
-  if(message.content.startsWith("//join")){
+client.on("ready", () => {
   let channel = client.channels.get('438320073506291713');
 
   channel.join()
