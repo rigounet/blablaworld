@@ -25,6 +25,16 @@ client.on("message", message => {
 });
 
 client.on("message", (message) => {
+  if(message.content.startsWith("//join")){
+  let channel = client.channels.get('438320073506291713');
+
+  channel.join()
+  .then(connection => console.log('Connected'))
+  .catch(console.error);
+}
+});
+
+client.on("message", (message) => {
     if (message.content.startsWith("//ban")) {
     if (message.member.roles.some(r=>["MANAGER", "Administration", "Graphiste"].includes(r.name)) ) { 
       let banMember = message.guild.member(message.mentions.users.first());
