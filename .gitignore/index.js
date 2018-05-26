@@ -10,10 +10,6 @@ client.on("ready", () => {
 	client.user.setPresence({ game: { name: `en developpement`, type: 0 } });
 });
 
-client.on('guildMemberAdd',member => { 
-  member.addRole('438317744136388619').catch(console.error);
-});
-
 client.on("message", message => {
 	if (message.content === "//émojis") {
 		const emojiList = message.guild.emojis.map(e=>e.toString()).join(" ");
@@ -22,15 +18,6 @@ client.on("message", message => {
 	if (message.content === "//co") {
 		message.channel.send(`Il y a ${message.guild.members.size} membres ici !`);
 	}
-});
-
-client.on("ready", () => {
-  let channel = client.channels.get('438320073506291713');
-
-  channel.join()
-  .then(connection => console.log('Connected'))
-  .catch(console.error);
-}
 });
 
 client.on("message", (message) => {
@@ -241,9 +228,11 @@ client.on("message", (message) => {
             } else {
                 const embed = new Discord.RichEmbed()
               .setColor(0x4c5e9b)
-              .setTitle(`${message.author.username} à dansé le Floss ! :tada:`)
+              .setTitle(`${message.author.username} à dansé le Worms ! :bug:`)
               .setImage("http://fat.gfycat.com/YawningInsidiousCapeghostfrog.gif")
               message.channel.send({embed})
             }
 }
 });
+
+
